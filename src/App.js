@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Layout/Navbar/Navbar";
+import Home from "./pages/Home";
+import Todos from "./pages/Todos";
+import { useState } from "react";
+import ComponentRender from "./components/ComponentRender";
+import NewCiclo from "./components/NewCiclo";
 
 function App() {
+  const [tabs, setTabs] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NewCiclo setArray={setTabs} />
+      <Router>
+        <Navbar pages={tabs} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          <Route
+            path={`/pages/:id`}
+            element={<ComponentRender components={tabs} />}
+          />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
