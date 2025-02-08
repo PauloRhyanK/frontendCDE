@@ -1,18 +1,11 @@
 import { Link } from "react-router-dom";
 import { IoMdRadioButtonOn } from "react-icons/io";
 import { FaCircle } from "react-icons/fa";
-import { useState } from "react";
 
-function ItemC({ index, tab }) {
-  const [check, setCheck] = useState(false);
-
-  const handleClick = () => {
-    setCheck((prevCheck) => !prevCheck);
-  };
-
+function ItemC({ index, tab, check, onClick }) {
   return (
     <>
-      <li key={index} onClick={handleClick}>
+      <li key={index} onClick={() => onClick(index)}>
         {check ? (
           <IoMdRadioButtonOn color="white" />
         ) : (

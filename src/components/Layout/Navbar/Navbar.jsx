@@ -1,14 +1,29 @@
+import "./Navbar.css";
 import React from "react";
-
 import ItemC from "./ItemC";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar({ pages }) {
+  const [tabSelect, setTabSelect] = useState(); // Home pronta, criar home
+
   return (
     <nav className="navBar">
-      <h1>Meus Ciclos</h1>
+      <Link className="noLink" to="/">
+        <h1>Home</h1>
+      </Link>
+      <div>
+        <h1>Meus Ciclos</h1>
+      </div>
       <ul>
         {pages.map((tab, index) => (
-          <ItemC index={index} tab={tab} />
+          <ItemC
+            key={index}
+            onClick={setTabSelect}
+            index={index}
+            tab={tab}
+            check={tabSelect === index}
+          />
         ))}
       </ul>
     </nav>
