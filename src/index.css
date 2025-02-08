@@ -29,75 +29,7 @@ code {
   height: 100vh;
 
   display: grid;
-  grid-template-columns: 25% 75%;
-}
-
-.navBar {
-  padding-top: 65px;
-  background-color: #035ca5;
-  color: #ffffff;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.navBar ul {
-  list-style: none;
-  padding: 0px;
-  width: 60%;
-}
-
-.navBar li {
-  display: flex;
-  align-items: center;
-}
-
-.navBar input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 25px;
-  height: 25px;
-  border: 2px solid #2b292e;
-  border-radius: 50%;
-  background-color: #ffffff;
-  cursor: pointer;
-  position: relative;
-}
-
-.navBar input[type="radio"]:checked {
-  background-color: #035ca5;
-}
-
-.navBar input[type="radio"]:checked::before {
-  content: "";
-  display: block;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.navBar h1 {
-  margin-bottom: 10px;
-  font-size: 35px;
-  font-weight: 1000;
-  color: inherit;
-}
-
-.navBar h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-
-  font-size: 20px;
-  font-weight: 450;
-  color: #ffffff;
+  grid-template-columns: 18% 75%;
 }
 
 .noLink {
