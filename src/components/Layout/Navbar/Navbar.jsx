@@ -3,8 +3,9 @@ import React from "react";
 import ItemC from "./ItemC";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import NewCiclo from "../../NewCiclo";
 
-function Navbar({ pages }) {
+function Navbar({ pages, newPages }) {
   const [tabSelect, setTabSelect] = useState(); // Home pronta, criar home
 
   return (
@@ -13,7 +14,7 @@ function Navbar({ pages }) {
         <h1>Home</h1>
       </Link>
       <div>
-        <h1>Meus Ciclos</h1>
+        <NewCiclo setArray={newPages} />
       </div>
       <ul>
         {pages.map((tab, index) => (
