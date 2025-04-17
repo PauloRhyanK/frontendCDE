@@ -30,6 +30,16 @@
 
 .section_Main {
   height: 100vh;
+  background: #dfdfdf;
+}
+
+.section_content{
+  padding: 15px;
+  margin: 50px;
+  border-radius: 17px;
+  background: #e0e0e0;
+  box-shadow: 8px 7px 7px 3px #a6a6a64a, -15px -15px 20px #cdcdcdba;
+
 }
 
 @keyframes App-logo-spin {
