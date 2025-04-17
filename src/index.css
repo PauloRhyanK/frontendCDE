@@ -29,7 +29,7 @@ code {
   height: 100vh;
 
   display: grid;
-  grid-template-columns: 18% 75%;
+  grid-template-columns: 18% 82%;
 }
 
 .noLink {
