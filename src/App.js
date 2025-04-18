@@ -6,9 +6,10 @@ import { useState } from "react";
 import ComponentRender from "./components/ComponentRender";
 import "@fontsource/montserrat";
 import "@fontsource/inter";
+import * as React from 'react';
 
 function App() {
-  const [tabs, setTabs] = useState([]);
+  const [tabs, setTabs] = useState([{checks: 1, name: 'teste'}]);
 
   return (
     <>

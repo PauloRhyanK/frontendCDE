@@ -1,0 +1,28 @@
+
+.table{
+  border-radius: 1vw;
+  overflow: hidden;
+  
+}
+
+.table-columns {
+  display: grid;
+  border: 2px solid;
+  padding: 10px;
+  background: #4f4f4f;
+  color: #ffff;
+  font-family: sans-serif;
+  font-size: 1.2vw;
+}
+.table-rows {
+  display: grid;
+  padding: 10px;
+  background: #c4c3c3;
+  color: #222222;
+  font-family: sans-serif;
+  font-size: 1.2vw;
+}
+
+.table-row{
+  display: grid;
+}
