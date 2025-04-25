@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+::root {
+  --Brand-color: #035CA5;
+  --Brand-color-light: #008CFF;
+  --Brand-gray: #689DC9;
+  --seconde-color: #CAC4D0;
+  --font-main: "Montserrat", sans-serif;
+  --h1: 800 24px/135% var(--font-main);
+  --h2: 800 16px/140% var(--font-main);
+  --h3: 800 14px/140% var(--font-main);
+  --text-span: 600 14px/145% var(--font-main);
+  --text: 400 14px/140% var(--font-main);
+
+}
+
+body {
+  font-family: var(--font-main);
+
+}
+
+
 .App {
   text-align: center;
 }
@@ -33,7 +55,7 @@
   background: #dfdfdf;
 }
 
-.section_content{
+.section_content {
   padding: 15px;
   margin: 50px;
   border-radius: 17px;
@@ -46,6 +68,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
