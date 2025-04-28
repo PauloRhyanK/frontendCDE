@@ -1,20 +1,12 @@
 import { useState } from "react";
-import { IoMdAdd as Add } from "react-icons/io";
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Modal,
-  ModalDialog,
-  DialogTitle,
-  DialogContent,
-  Stack,
-  Button,
-} from "@mui/joy";
+import { IoMdAdd as Add, IoMdClose as Close } from "react-icons/io";
+import { FaPen, Pen } from "react-icons/fa";
+
 
 function NewCiclo({ setArray }) {
   const [tabName, setTabName] = useState();
-  const [tabCheck, setTabCheck] = useState();
+  const [totalHours, setTotalHours] = useState();
+  const [materias, setMaterias] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   let titulo = "Criar Ciclo";
   let subTitulo = "Insira as informações do seu novo ciclo de estudos";
@@ -27,66 +19,150 @@ function NewCiclo({ setArray }) {
 
   const createCycle = (e) => {
     e.preventDefault();
-    setArray((prevItens) => [
-      ...prevItens,
-      { name: tabName, checks: tabCheck },
-    ]);
   };
+
+  const setMateria = (materia, qtPeso, qtConteudo, qtDificuldade) => {
+    let newMateria = {
+      name: materia,
+      peso: qtPeso,
+      conteudo: qtConteudo,
+      dificuldade: qtDificuldade,
+      checks: 0
+    }
+    setMaterias(newMateria);
+  }
 
   return (
     <>
-      <Button
-        color="primary"
-        startDecorator={<Add />}
-        variant="solid"
-        onClick={openModal}
-      >
-        Criar Ciclo
-      </Button>
+      <button id="BNewCicle">
+        <Add />
+        Novo Ciclo
+      </button>
+      <div id="ModalNewCicle">
+        <form>
+          <header>
+            <h1 className="title">Novo Ciclo</h1>
+            <button onClick={(e) => { e.preventDefault() }}>
+              <Close />
+            </button>
+          </header>
+          <fieldset className="header">
+            <div className="inputBox">
+              <label htmlFor="nameCicle">Nome do Ciclo</label>
+              <input type="text" name="nameCicle" id="nameCicle" placeholder="nome do ciclo..." />
+            </div>
+            <div className="inputBox">
+              <label htmlFor="totalHours">Horas totais</label>
+              <input type="number" min="0" step={10} name="totalHours" id="totalHours" placeholder="00" />
+            </div>
+          </fieldset>
+          <fieldset className="mattes">
+            <div>
+              <div className="inputBox">
+                <label htmlFor="nameMatter">Materia</label>
+                <input type="text" name="nameMatter" id="nameMatter" placeholder="nome da materia..." />
+              </div>
+              <div className="numbersInput">
+                <div className="inputBox">
+                  <label htmlFor="difficulty">Dificuldade</label>
+                  <input type="number" min={0} max={5} name="difficulty" id="difficulty" placeholder="0" />
+                </div>
+                <div className="inputBox">
+                  <label htmlFor="qtContent">Conteudo</label>
+                  <input type="number" min={0} max={5} name="qtContent" id="qtContent" placeholder="0" />
+                </div>
+                <div className="inputBox">
+                  <label htmlFor="qtWeight">Peso</label>
+                  <input type="number" min={0} max={5} name="qtWeight" id="qtWeight" placeholder="0" />
+                </div>
+                <div className="addMatter">
+                  <label htmlFor="addMatter">Adicionar Materia</label>
+                  <button onClick={(e) => { e.preventDefault() }} id="addMatter">
+                    add
+                    <Add />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <ul className="matterList">
+              <li className="header-list">
+                <p className="header-text">
+                  Titulo
+                </p>
+                <p>Dificuldade</p>
+                <p>Conteudo</p>
+                <p>Peso</p>
+                <p>Horas</p>
 
-      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-        <ModalDialog>
-          <DialogTitle>{titulo}</DialogTitle>
-          <DialogContent>{subTitulo}</DialogContent>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              createCycle(e);
-              setIsOpen(false);
-            }}
-          >
-            <Stack spacing={2}>
-              <FormControl>
-                <FormLabel>Nome do ciclo</FormLabel>
-                <Input
-                  onChange={(e) => {
-                    setTabName(e.target.value);
-                  }}
-                  placeholder="Insira o nome do Ciclo..."
-                  type="text"
-                  variant={uiVariant}
-                  size={uiSize}
-                  required
-                ></Input>
-              </FormControl>
-              <FormControl>
-                <FormLabel>Quantidade de Itens:</FormLabel>
-                <Input
-                  onChange={(e) => {
-                    setTabCheck(e.target.value);
-                  }}
-                  placeholder="Número de itens"
-                  type="number"
-                  variant={uiVariant}
-                  size={uiSize}
-                  required
-                ></Input>
-              </FormControl>
-              <Button type="submit">Submit</Button>
-            </Stack>
-          </form>
-        </ModalDialog>
-      </Modal>
+              </li>
+              <li>
+                <p className="cell">
+                  Titulo
+                </p>
+                <p className="cell">10</p>
+                <p className="cell">5</p>
+                <p className="cell">2</p>
+                <p className="cell">4</p>
+              </li>
+              <li>
+                <p className="cell">
+                  Titulo
+                </p>
+                <p className="cell">10</p>
+                <p className="cell">5</p>
+                <p className="cell">2</p>
+                <p className="cell">4</p>
+              </li>
+              <li>
+                <p className="cell">
+                  Titulo
+                </p>
+                <p className="cell">10</p>
+                <p className="cell">5</p>
+                <p className="cell">2</p>
+                <p className="cell">4</p>
+              </li>
+              <li>
+                <p className="cell">
+                  Titulo
+                </p>
+                <p className="cell">10</p>
+                <p className="cell">5</p>
+                <p className="cell">2</p>
+                <p className="cell">4</p>
+              </li>
+              <li>
+                <p className="cell">
+                  Titulo
+                </p>
+                <p className="cell">10</p>
+                <p className="cell">5</p>
+                <p className="cell">2</p>
+                <p className="cell">4</p>
+              </li>
+              <li>
+                <p className="cell">
+                  Titulo
+                </p>
+                <p className="cell">10</p>
+                <p className="cell">5</p>
+                <p className="cell">2</p>
+                <p className="cell">4</p>
+              </li>
+              <li>
+                <p className="cell">
+                  Titulo
+                </p>
+                <p className="cell">10</p>
+                <p className="cell">5</p>
+                <p className="cell">2</p>
+                <p className="cell">4</p>
+              </li>
+            </ul>
+          </fieldset>
+        </form>
+      </div>
+
     </>
   );
 }

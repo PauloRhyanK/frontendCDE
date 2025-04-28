@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-function Ciclo({ checks, name, path }) {
+function Ciclo({ ciclo }) {
   const [bullet, setBullet] = useState(
-    Array.from({ length: checks }, () => "[ ]")
+    Array.from({ length: ciclo.checks }, () => "[ ]")
   );
 
   useEffect(() => {
-    setBullet(Array.from({ length: checks }, () => "[ ]"));
-  }, [checks]);
+    setBullet(Array.from({ length: ciclo.checks }, () => "[ ]"));
+  }, [ciclo.checks]);
 
   const columns = [
     { field: 'name', headerName: 'TaskName', size: 2 },
