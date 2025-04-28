@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('index.css');
 
-::root {
+:root {
   --Brand-color: #035CA5;
   --Brand-color-light: #008CFF;
   --Brand-gray: #689DC9;
   --seconde-color: #CAC4D0;
   --font-main: "Montserrat", sans-serif;
-  --h1: 800 24px/135% var(--font-main);
-  --h2: 800 16px/140% var(--font-main);
-  --h3: 800 14px/140% var(--font-main);
+  --h1: 500 48px/135% var(--font-main);
+  --h2: 600 20px/140% var(--font-main);
+  --h3: 600 16px/140% var(--font-main);
   --text-span: 600 14px/145% var(--font-main);
   --text: 400 14px/140% var(--font-main);
 
@@ -16,7 +17,8 @@
 
 body {
   font-family: var(--font-main);
-
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 
@@ -71,5 +73,111 @@ body {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+.main {
+  font-family: "Montserrat";
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 18% 82%;
+}
+
+.noLink {
+  text-decoration: none;
+
+}
+
+#Main-Container {
+  display: grid;
+  grid-template-rows: 3fr 7fr;
+  height: 100vh;
+
+
+  header {
+    margin-inline: 50px;
+    width: 100%;
+
+  }
+
+  .h1 {
+    font: var(--h1);
+    color: var(--Brand-color);
+    margin-block: 0;
+  }
+
+  .category {
+    font: var(--h2);
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+
+  .date {
+    font: var(--text);
+    margin-top: 0px;
+    color: hsl(0, 0%, 40%);
+  }
+}
+
+#table {
+  margin-inline: 50px;
+  padding: 25px;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  background-color: #FFFF;
+
+  table {
+    width: 100%;
+    /* border: solid 1px #282c34; */
+    border-spacing: 0;
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    border-inline: solid 1px #d1d1d1;
+    font: var(--text);
+  }
+
+  th {
+    font: var(--h3);
+    border-bottom: solid 1px #d1d1d1;
+    ;
+  }
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #cccccc;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  input[type="checkbox"]:checked::before {
+    content: '✔';
+    width: 100%;
+    height: 100%;
+    padding-inline: 5px;
+    padding-top: 0px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: var(--Brand-color-light);
+    color: #ffffff;
+    font-size: 14px;
+  }
+
+  .materias {
+    width: 30%;
+  }
+
+  .checks {
+    width: 70%;
   }
 }

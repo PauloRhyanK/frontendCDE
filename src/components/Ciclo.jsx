@@ -1,8 +1,4 @@
 import { useEffect, useState } from "react";
-import Box from '@mui/material/Box';
-import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
-import { TaskTable } from "./Layout/Ciclo/TaskTable";
-import "./Ciclo.css"
 
 function Ciclo({ checks, name, path }) {
   const [bullet, setBullet] = useState(
@@ -28,6 +24,13 @@ function Ciclo({ checks, name, path }) {
       qt_content: 4,
       total_hours: 10,
       concluded: 3,
+    },
+    {
+      name: "Comp Gráfica",
+      difficulty: 5,
+      qt_content: 4,
+      total_hours: 10,
+      concluded: 8,
     }
   ];
 
@@ -35,20 +38,38 @@ function Ciclo({ checks, name, path }) {
   return (
     <div id="Main-Container">
       <header>
-        <p>Ciclo</p>
-        <h1 className="tt-b">Faculdade</h1>
-        <p>01/07 até 05/12 de 2024</p>
+        <p className="category">Ciclo</p>
+        <h1 className="h1">Faculdade</h1>
+        <p className="date">01/07 até 05/12 de 2024</p>
       </header>
 
-      {/* <section className="section_content">
-        <h5>
-          {name} path {path} : {checks} checks
-        </h5>
-        {bullet.map((element, index) => (
-          <p key={index}> {element} </p>
-        ))}
-        <TaskTable rows={rows} columns={columns} />
-      </section> */}
+      <main id="table">
+        <table>
+          <thead>
+            <tr className="tb-header">
+              <th className="materias">Matérias</th>
+              <th className="checks">Horas concluidas</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                <td>{row.name}</td>
+                <td>
+                  {Array.from({ length: row.concluded }, (_, index) => (
+                    <input
+                      key={index}
+                      type="checkbox"
+                      name={`checkbox-${rowIndex}-${index}`}
+                      id={`checkbox-${rowIndex}-${index}`}
+                    />
+                  ))}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </main>
     </div>
   );
 }
